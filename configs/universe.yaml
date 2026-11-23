@@ -1,0 +1,22 @@
+# Universe filter for NCAAB Kalshi markets (Phase 2)
+# Values are placeholders — tune after liquidity analysis.
+
+sport: ncaab
+
+include:
+  power_conferences: true
+  nationally_televised: true
+  recognizable_programs: true  # prestige / fanbase proxy TBD
+
+exclude:
+  small_conference_default: true
+
+liquidity_floor:
+  # Minimums to enter the tradeable universe
+  min_volume_contracts: null      # TBD from historical analysis
+  min_top_of_book_depth: null     # TBD from L2 snapshots
+  max_bid_ask_spread_cents: null  # TBD
+
+notes: >
+  Restrict to recognizable programs, power conferences, and nationally
+  televised slates that pass a strict minimum volume/depth floor.

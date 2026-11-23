@@ -1,0 +1,48 @@
+# Secrets & local env
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+.conda/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Data (keep directory structure via .gitkeep)
+data/raw/**/*
+!data/raw/**/.gitkeep
+data/processed/**/*
+!data/processed/**/.gitkeep
+data/l2_snapshots/**/*
+!data/l2_snapshots/**/.gitkeep
+
+# Notebooks / IDE
+.ipynb_checkpoints/
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model artifacts (large)
+artifacts/
+*.lgb
+*.xgb
+*.pkl
+*.joblib

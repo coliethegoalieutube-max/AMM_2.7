@@ -1,0 +1,22 @@
+# Live risk controls (Phase 5)
+# Start conservative; loosen only after mark-out audit is clean.
+
+position:
+  max_bankroll_pct_per_game: 0.02    # 1–2% of bankroll
+  max_concurrent_contracts: null     # TBD once bankroll known
+  max_open_markets: null             # TBD
+
+daily:
+  max_loss_usd: null                 # hard daily stop — set before go-live
+
+mark_out_audit:
+  horizons_minutes: [5, 30]
+  # If post-fill mark-outs consistently negative, tighten universe / kill switch
+  # before scaling capital.
+
+kill_switch:
+  sharp_drop_cents: 2
+
+flatten:
+  hard_cutoff_minutes_before_tip: 15
+  never_hold_into_tip: true
