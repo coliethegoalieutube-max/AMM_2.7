@@ -1,0 +1,26 @@
+# Strategy parameters (Phases 2–5)
+# Tune via Phase 3 backtest grid; freeze before live.
+
+entry:
+  window_hours_before_tip: [36, 24]  # candidates; pick one after backtest
+  default_window_hours: 30           # inference / bid posting around T-30h
+
+selection:
+  top_fraction: 0.10                 # top 5–10% of daily slate by predicted drift
+  # use 0.05 for more selective top 5%
+
+exit:
+  initial_ask_offset_cents: [3, 4, 5]
+  default_ask_offset_cents: 4
+  glide_path_hours_before_tip: [2, 1, 0.5]  # T-2h, T-1h, T-30m
+  hard_flatten_minutes_before_tip: [30, 15, 5]
+  default_hard_flatten_minutes: 15
+  avoid_flatten_within_minutes: 1    # avoid T-1m into MM widening
+
+kill_switch:
+  sharp_drop_cents: 2                # cancel unfilled bids if sharp moves against ≥2¢
+
+label:
+  start_hours_before_tip: 30         # T-30h
+  end_minutes_before_tip: 30         # T-30m
+  clip_excess_drift_cents: 10
